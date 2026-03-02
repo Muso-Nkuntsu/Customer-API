@@ -8,7 +8,8 @@ import za.ac.cput.util.ValidationUtil;
 class CustomerTest {
 
     @Test
-    void testEmailScenarios() {
+    @DisplayName("Test valid email format")
+    void testEmail() {
         assertTrue(EmailValidator.isValidEmail("test@cput.ac.za"), "Should be valid");
         assertFalse(EmailValidator.isValidEmail("bad-email"), "Should be invalid (no @)");
         assertFalse(EmailValidator.isValidEmail("user@.com"), "Should be invalid (no domain)");

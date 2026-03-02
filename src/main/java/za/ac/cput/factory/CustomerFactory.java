@@ -7,15 +7,21 @@ import za.ac.cput.util.ValidationUtil;
 
 public class CustomerFactory {
     public static Customer createCustomer(String customerID,String firstName, String lastName, String emailAddress){
+     if(!EmailValidator.isValidEmail(emailAddress)){
+         System.out.println("Log: Invalid email format provided.");
+         return null;
+     }
+
      try{
-         ValidationUtil.requiredNotNull0orEmpty(customerID, "CustomerID");
-         ValidationUtil.requiredNotNull0orEmpty(emailAddress, "EmailAddress");
+         ValidationUtil.requiredNotNullorEmpty(customerID, "CustomerID");
+         ValidationUtil.requiredNotNullorEmpty(emailAddress, "EmailAddress");
          EmailValidator.isValidEmail(emailAddress);
      } catch (IllegalArgumentException e){
+         System.out.println("Log: "+ e.getMessage());
          return null;
      }
      return new Customer.Builder()
-             .createCustomer(emailAddress, customerID)
+             .createCustomer(customerID,emailAddress)
              .setFirstName(firstName)
              .setLastName(lastName)
              .build();

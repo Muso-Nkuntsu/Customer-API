@@ -6,6 +6,7 @@ public class Customer {
     private String lastName;
     private String emailAddress;
 
+
     public Customer(Builder builder) {
         this.customerID = builder.customerID;
         this.firstName = builder.firstName;
@@ -14,12 +15,11 @@ public class Customer {
     }
     @Override
     public String toString() {
-        return "Customer{" +
-                "customerID='" + customerID + '\'' +
+        return "customerID='" + customerID + '\'' +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", emailAddress='" + emailAddress + '\'' +
-                '}';
+                ", emailAddress='" + emailAddress + '\''
+                ;
     }
     public static class Builder {
         private String customerID;
@@ -27,26 +27,23 @@ public class Customer {
         private String lastName;
         private String emailAddress;
 
-        public Builder createCustomer(String emailAddress, String customerID) {
+
+        public Builder createCustomer(String customerID, String emailAddress) {
             this.customerID = customerID;
             this.emailAddress = emailAddress;
+
             return this;
         }
-
         public Builder setFirstName(String firstName) {
             this.firstName = firstName;
             return this;
         }
-
         public Builder setLastName(String lastName) {
             this.lastName = lastName;
             return this;
-
         }
-
         public Customer build() {
             return new Customer(this);
-
         }
     }
 }
