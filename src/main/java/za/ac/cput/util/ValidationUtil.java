@@ -1,8 +1,8 @@
 package za.ac.cput.util;
 
 public class ValidationUtil {
-    public static void requiredNotNull0orEmpty(String value, String fieldName) {
-      if(value == null || value.trim().value.isEmpty()){
+    public static void requiredNotNullorEmpty(String value, String fieldName) {
+      if(value == null || value.trim().isEmpty()){
           throw new IllegalArgumentException(fieldName+ "is required");
       }
     }

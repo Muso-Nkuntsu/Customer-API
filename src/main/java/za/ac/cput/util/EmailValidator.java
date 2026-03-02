@@ -7,7 +7,7 @@ public class EmailValidator {
 
     private static final Pattern EMAIL_PATTERN = Pattern.compile(Email_Regex, Pattern.CASE_INSENSITIVE);
 
-    private static boolean isValidEmail(String email) {
+    public static boolean isValidEmail(String email) {
         if (email == null) {
             return false;
         }
